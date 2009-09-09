@@ -1,7 +1,6 @@
 ts.bspline <-
-function(expr,ts.point=NULL,df=round(ncol(expr)*0.75),data.predict=100) {
+function(expr,ts.point=NULL,data.predict=100,df=round(ncol(expr)*0.8)) {
 	require(splines)
-	
 	gene.bs<-vector('list',length=nrow(expr))
 	names(gene.bs)<-rownames(expr)
 	

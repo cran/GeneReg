@@ -1,13 +1,13 @@
-\name{expr}
-\alias{expr}
-\title{Time course cell cycle datasets}
+\name{wt.expr.data}
+\alias{wt.expr.data}
+\title{Time course cell cycle dataset of wild-type cells}
 \description{
-expr is a cell cycle of yeast datasets which is publicly available at GEO 
+wt.expr.data is from a yeast cell cycle datasets which is publicly available at GEO 
 \url{http://www.ncbi.nlm.nih.gov/geo} under accession number GSE8799. 
-The example time course gene expression profiles included 15 time points 
+The time course gene expression profiles included 15 time points 
 at 16 min resolution in wild type Saccharomyces cerevisiae.
 }
-\usage{data(expr)}
+\usage{data(wt.expr.data)}
 \format{1267 genes expression profiles at 15 time points}
 \source{\url{http://www.biology.duke.edu/haaselab/publicData/index.html}}
 \references{

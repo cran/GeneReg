@@ -1,10 +1,12 @@
 \name{GeneReg-package}
+\Rdversion{1.1.0}
 \alias{GeneReg}
+\docType{package}
 \title{
-GeneReg
+Construct time delay gene regulatory network
 }
 \description{
-\pkg{GeneReg} is an R package for inferring gene regulatory network with time delay 
+\pkg{GeneReg} is an R package for inferring time delay gene regulatory network 
 using time course gene expression data.
 }
 \usage{
@@ -12,13 +14,7 @@ using time course gene expression data.
 \arguments{
 }
 \details{
-\tabular{ll}{
-Package: \tab \pkg{GeneReg}\cr
-Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2009-06-05\cr
-License: \tab LGPL\cr
-}
+
 The goal of time delay linear model is to fit a linear regression model 
 using a set of putative regulators to estimate the transcription pattern 
 of a specific target gene. 
@@ -30,64 +26,64 @@ Etfi is the relative expression level of TFi,
 ti is time delay of TFi, 
 ai is the regression coefficient of TFi.
 \cr \cr
+The regression models were optimized by the AIC forward selection procedure.
+\cr \cr
 In the following example, we will demonstrate how to use this package to 
 analysis a cell cycle datasets which is publicly available at GEO 
 \url{http://www.ncbi.nlm.nih.gov/geo} under accession number GSE8799. 
-The example time course gene expression profiles included 15 time points 
-at 16 min resolution in wild type Saccharomyces cerevisiae. 
-YEASTRACT (\url{http://www.yeastract.com/}) were used as potential gene regulation relationship.
+The data set included the gene expression profiles of wild-type cells and 
+cyclin-mutant cells with 15 time points during two cell cycles. 
+1271 periodic genes acquired from wild-type cells were analyzed to investigate 
+how yeast regulators regulate target gene expression. These periodic genes formed 
+the list of target genes. Then, a candidate pool of potential regulators 
+of target genes was constructed by intersecting the periodic genes and 
+the transcription factors in YEASTRACT \url{http://www.yeastract.com/}.   
 \cr \cr
 First, B spline interpolation was applied to estimate 100 time points 
-according to the original 15 time points.
+according to the original 15 time points. 
 \cr \cr
-\code{> data(expr)}
+\code{> data(wt.expr.data)}
 \cr \cr
-\code{> expr<- log2(expr)}
-\cr \cr
-\code{> expr<- expr - expr[,1]}
-\cr \cr
-\code{> expr.bspline<- ts.bspline(expr, ts.point= as.numeric(colnames(expr)), }
+\code{> wt.bspline.data<- ts.bspline(wt.expr.data, ts.point= as.numeric(colnames(wt.expr.data)), }
 \cr \cr
 \code{+ data.predict=100)}
 \cr \cr
-Then, the time delay linear model was carried out based on the interpolated 
-expression data and potential gene regulation relationship derived from YEASTRACT. 
-univariate. adj.r.squared and adj.r.squared is the cutoff of Adjusted R2 of 
-univariate regression and multivariate regression, separately. 
+Then, the time delay linear model was carried out based on the interpolated expression data. 
+single.adj.r.squared and multiple .adj.r.squared were the cutoffs of adjusted R2 of 
+single regulator regression and multiple regulator regression, respectively. 
+tfs.list were the candidate pool of regulators. 
 min.coef means the regression coefficient should be larger than 1/4 and smaller than 4. 
 maxdelay means the time points delay should not exceed 1/4 of all time points.
 \cr \cr
-\code{> data(yeastract)}
+\code{> dir.create('wt.model')}
 \cr \cr
-\code{> dir.create('model')}
+\code{> setwd('wt.model')}
 \cr \cr
-\code{> setwd('model')}
+\code{> wt.models<-timedelay.lm.batch(bspline.data=wt.bspline.data, expr.data=wt.expr.data, }
 \cr \cr
-\code{> models<-timedelay.lm.batch(expr.bspline, yeastract, }
+\code{+ tf.list=tf.list, single.adj.r.squared=0.8, multiple.adj.r.squared=0.9, }
 \cr \cr
-\code{+ univariate.adj.r.squared=0.8, adj.r.squared=0.9, }
+\code{+ maxdelay=ncol(wt.bspline.data)*0.1, min.coef=0.25, max.coef=4, output=T, topdf=T,  }
 \cr \cr
-\code{+ min.coef=1/4, maxdelay=ncol(expr.bspline)/4, output=T,  }
+\code{+ xlab='Time point (lifeline)', ylab='Relative expression level (in log ratio)')}
 \cr \cr
-\code{+ topdf=T, xlab='time (minute)',ylab='log ratio')}
-\cr \cr
-\code{setwd('..')}
+\code{> setwd('..')}
 \cr \cr
 Finally, the gene regulatory network can be plotted according to 
-the time delay linear model of every target gene.
+the series of time delay linear models.
 \cr \cr
-\code{> pdf('network.pdf',width=70, height=70)}
+\code{> pdf('wt.network.pdf',width=70, height=70)}
 \cr \cr
-\code{> plot.GeneReg(model,vertex.size=2,layout=layout.fruchterman.reingold)}
+\code{> plot.GeneReg(wt.models,vertex.size=2,layout=layout.fruchterman.reingold)}
 \cr \cr
 \code{> dev.off()}
-
+\cr \cr
+The analysis of cyclin-mutant cells is similar.
 }
 \author{
-Tao Huang
-
-Maintainer: Tao Huang <\email{huangtao@sibs.ac.cn}>
+Tao Huang <\email{huangtao@sibs.ac.cn}>
 }
 \references{
-\cite{Tao Huang, Ziliang Qian, Lei Liu, Yixue Li. GeneReg: R package for inferring gene regulatory network using time course gene expression data. 2009}
+\cite{Tao Huang, Ziliang Qian, Kang Tu, Lu Xie, Lei Liu. 
+Construct time delay gene regulatory network using GeneReg. 2009}
 }  

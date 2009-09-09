@@ -5,11 +5,13 @@
 Batch usage of time delay linear model.
 }
 \usage{
-timedelay.lm.batch(expr,regulator2target, \dots)
+timedelay.lm.batch(bspline.data, expr.data, regulator.list, target.list=rownames(bspline.data), \dots)
 }
 \arguments{
-  \item{expr}{an expression matrix with genes in the rows, time points in the columns}
-  \item{regulator2target}{potential gene regulation relationship}
+  \item{bspline.data}{output of ts.bspline, an interpolated expression matrix with genes in the rows, predicted time points in the columns}
+  \item{expr.data}{an observed expression matrix with genes in the rows, predicted time points in the columns}
+  \item{regulator.list}{a candidate pool of potential regulators}
+  \item{target.list}{the list of target genes that will be investigated}
   \item{ \dots}{Additional arguments, passed to \link{timedelay.lm}}
 }
 

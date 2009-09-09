@@ -10,7 +10,7 @@ function(edge,...)
 	vertex.color<-rep('white',length(node)); names(vertex.color)<-node
 	vertex.color[unique(as.character(edge[,1]))]<-'lightblue'
 	
-	edge.color<-ifelse(edge[,3]>0,'pink','darkgreen')
+	edge.color<-ifelse(edge[,3]>0,'red','green')
 	
 	C.label<-sapply(edge[,3],format,digits=2)
 	D.label<-sapply(edge[,4],format,digits=2)
