@@ -13,7 +13,7 @@ output=FALSE,topdf=FALSE,xlab='time point',ylab='log ratio') {
 			}
 	}
 	names(regulator.aic.list)<- regulator.list
-  regulator<-names(sort(regulator.aic.list,decreasing=False))
+  regulator<-names(sort(regulator.aic.list,decreasing=FALSE))
 
 	if (length(regulator)==0) return(NULL)
 

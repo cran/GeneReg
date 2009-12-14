@@ -1,5 +1,5 @@
 \name{GeneReg-package}
-\Rdversion{1.1.0}
+\Rdversion{1.1.1}
 \alias{GeneReg}
 \docType{package}
 \title{
@@ -44,28 +44,36 @@ according to the original 15 time points.
 \cr \cr
 \code{> data(wt.expr.data)}
 \cr \cr
-\code{> wt.bspline.data<- ts.bspline(wt.expr.data, ts.point= as.numeric(colnames(wt.expr.data)), }
+\code{> wt.bspline.data<- ts.bspline(wt.expr.data,  }
 \cr \cr
-\code{+ data.predict=100)}
+\code{+ ts.point=as.numeric(colnames(wt.expr.data)), data.predict=100)}
 \cr \cr
 Then, the time delay linear model was carried out based on the interpolated expression data. 
-single.adj.r.squared and multiple .adj.r.squared were the cutoffs of adjusted R2 of 
+single.adj.r.squared and multiple .adj.r.squared were the cutoffs of adjusted R seqaured of 
 single regulator regression and multiple regulator regression, respectively. 
 tfs.list were the candidate pool of regulators. 
 min.coef means the regression coefficient should be larger than 1/4 and smaller than 4. 
 maxdelay means the time points delay should not exceed 1/4 of all time points.
 \cr \cr
+\code{> data(tf.list)}
+\cr \cr
 \code{> dir.create('wt.model')}
 \cr \cr
 \code{> setwd('wt.model')}
 \cr \cr
-\code{> wt.models<-timedelay.lm.batch(bspline.data=wt.bspline.data, expr.data=wt.expr.data, }
+\code{> wt.models<-timedelay.lm.batch(bspline.data=wt.bspline.data,  }
 \cr \cr
-\code{+ tf.list=tf.list, single.adj.r.squared=0.8, multiple.adj.r.squared=0.9, }
+\code{+ expr.data=wt.expr.data, tf.list=tf.list,  }
 \cr \cr
-\code{+ maxdelay=ncol(wt.bspline.data)*0.1, min.coef=0.25, max.coef=4, output=T, topdf=T,  }
+\code{+ target.list=rownames(wt.bspline.data),  }
 \cr \cr
-\code{+ xlab='Time point (lifeline)', ylab='Relative expression level (in log ratio)')}
+\code{+ single.adj.r.squared=0.8, multiple.adj.r.squared=0.9, }
+\cr \cr
+\code{+ maxdelay=ncol(wt.bspline.data)*0.1, min.coef=0.25, max.coef=4,  }
+\cr \cr
+\code{+ output=T, topdf=T, xlab='Time point (lifeline)',  }
+\cr \cr
+\code{+ ylab='Relative expression level (in log ratio)')}
 \cr \cr
 \code{> setwd('..')}
 \cr \cr

@@ -6,9 +6,9 @@ timedelay.lm is for time delay linear model.
 }
 \usage{
 timedelay.lm(bspline.data, expr.data, target, regulator,   
-maxdelay=ncol(bspline.data)*0.25,single.adj.r.squared=0.8,
-multiple.adj.r.squared=0.9,min.coef=0.25,max.coef=4,
-output=FALSE,topdf=FALSE,xlab='time point',ylab='log ratio')
+maxdelay=ncol(bspline.data)*0.25, single.adj.r.squared=0.8,
+multiple.adj.r.squared=0.9, min.coef=0.25, max.coef=4,
+output=FALSE, topdf=FALSE, xlab='time point', ylab='log ratio')
 }
 \arguments{
   \item{bspline.data}{an interpolated expression matrix with genes in the rows, predicted time points in the columns}

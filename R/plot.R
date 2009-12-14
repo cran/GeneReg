@@ -1,3 +1,2 @@
-plot <-
-function(edge,...) NextMethod('plot.igraph')
+plot <- function(edge,...) UseMethod('plot')
 

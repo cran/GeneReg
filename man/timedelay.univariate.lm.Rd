@@ -5,8 +5,9 @@
 timedelay.univariate.lm is an internal function for time delay linear model.
 }
 \usage{
-timedelay.univariate.lm(bspline.data,target,regulator,maxdelay=ncol(bspline.data)*0.25,
-single.adj.r.squared=0.8,min.coef=0.25,max.coef=4)
+timedelay.univariate.lm(bspline.data, target, regulator,
+maxdelay=ncol(bspline.data)*0.25,
+single.adj.r.squared=0.8, min.coef=0.25, max.coef=4)
 }
 \arguments{
   \item{bspline.data}{an interpolated expression matrix with genes in the rows, predicted time points in the columns}

@@ -5,7 +5,8 @@
 Batch usage of time delay linear model.
 }
 \usage{
-timedelay.lm.batch(bspline.data, expr.data, regulator.list, target.list=rownames(bspline.data), \dots)
+timedelay.lm.batch(bspline.data, expr.data, regulator.list, 
+target.list=rownames(bspline.data), \dots)
 }
 \arguments{
   \item{bspline.data}{output of ts.bspline, an interpolated expression matrix with genes in the rows, predicted time points in the columns}

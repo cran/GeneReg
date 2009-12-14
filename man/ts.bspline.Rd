@@ -5,7 +5,7 @@
 ts.bspline is for B spline interpolation.
 }
 \usage{
-ts.bspline(expr,ts.point=NULL,data.predict=100,df=round(ncol(expr)*0.8))
+ts.bspline(expr,ts.point=NULL, data.predict=100, df=round(ncol(expr)*0.8))
 }
 \arguments{
   \item{expr}{an expression matrix with genes in the rows, time points in the columns}
