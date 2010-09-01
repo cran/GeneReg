@@ -38,7 +38,8 @@ output=FALSE,topdf=FALSE,xlab='time point',ylab='log ratio') {
 				fit.aic<-AIC(fit)
 				fit.coef<-summary(fit)$coef[,1]
 
-				if ((fit.aic<min.aic) & sum(abs(fit.coef)>=min.coef,abs(fit.coef)<=max.coef)==2*length(fit.coef)) {
+				if ((fit.aic<min.aic) & sum(abs(fit.coef)>=min.coef,abs(fit.coef)<=max.coef)==2*length(fit.coef)
+				& nrow(summary(fit)$coef) == length(names(regulator.delay.i))) {
 					min.aic<-fit.aic
 					regulator.delay<-regulator.delay.i
 					best.fit<-fit

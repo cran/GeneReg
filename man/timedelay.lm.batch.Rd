@@ -15,4 +15,7 @@ target.list=rownames(bspline.data), \dots)
   \item{target.list}{the list of target genes that will be investigated}
   \item{ \dots}{Additional arguments, passed to \link{timedelay.lm}}
 }
-
+\references{
+\cite{Tao Huang, Lei Liu, Ziliang Qian, Kang Tu, Yixue Li, Lu Xie: Using GeneReg to construct time delay gene regulatory networks. BMC Res Notes 2010, 3(1):142.}
+\url{http://www.biomedcentral.com/1756-0500/3/142}
+} 

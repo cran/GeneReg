@@ -13,4 +13,7 @@ Plot gene regulatory network based on a series of time delay linear models.
   the third column is the regression coefficient, the fourth column is time delay.}
   \item{\dots}{Additional arguments, passed to plot.igraph.}
 }
-
+\references{
+\cite{Tao Huang, Lei Liu, Ziliang Qian, Kang Tu, Yixue Li, Lu Xie: Using GeneReg to construct time delay gene regulatory networks. BMC Res Notes 2010, 3(1):142.}
+\url{http://www.biomedcentral.com/1756-0500/3/142}
+} 

@@ -18,3 +18,7 @@ single.adj.r.squared=0.8, min.coef=0.25, max.coef=4)
   \item{min.coef}{the regression coefficient should be larger than min.coef}
   \item{max.coef}{the regression coefficient should be smaller than max.coef}  
 }
+\references{
+\cite{Tao Huang, Lei Liu, Ziliang Qian, Kang Tu, Yixue Li, Lu Xie: Using GeneReg to construct time delay gene regulatory networks. BMC Res Notes 2010, 3(1):142.}
+\url{http://www.biomedcentral.com/1756-0500/3/142}
+} 

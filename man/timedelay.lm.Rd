@@ -25,4 +25,7 @@ output=FALSE, topdf=FALSE, xlab='time point', ylab='log ratio')
   \item{xlab}{xlab of the plot}
   \item{ylab}{ylab of the plot}
 }
-
+\references{
+\cite{Tao Huang, Lei Liu, Ziliang Qian, Kang Tu, Yixue Li, Lu Xie: Using GeneReg to construct time delay gene regulatory networks. BMC Res Notes 2010, 3(1):142.}
+\url{http://www.biomedcentral.com/1756-0500/3/142}
+} 

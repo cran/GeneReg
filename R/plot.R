@@ -1,2 +1,3 @@
-plot <- function(edge,...) UseMethod('plot')
+plot <-
+function(edge,...) UseMethod('plot')
 

@@ -1,5 +1,5 @@
 \name{GeneReg-package}
-\Rdversion{1.1.1}
+\Rdversion{1.1.2}
 \alias{GeneReg}
 \docType{package}
 \title{
@@ -63,7 +63,7 @@ maxdelay means the time points delay should not exceed 1/4 of all time points.
 \cr \cr
 \code{> wt.models<-timedelay.lm.batch(bspline.data=wt.bspline.data,  }
 \cr \cr
-\code{+ expr.data=wt.expr.data, tf.list=tf.list,  }
+\code{+ expr.data=wt.expr.data, regulator.list=tf.list,  }
 \cr \cr
 \code{+ target.list=rownames(wt.bspline.data),  }
 \cr \cr
@@ -92,6 +92,6 @@ The analysis of cyclin-mutant cells is similar.
 Tao Huang <\email{huangtao@sibs.ac.cn}>
 }
 \references{
-\cite{Tao Huang, Ziliang Qian, Kang Tu, Lu Xie, Lei Liu. 
-Construct time delay gene regulatory network using GeneReg. 2009}
+\cite{Tao Huang, Lei Liu, Ziliang Qian, Kang Tu, Yixue Li, Lu Xie: Using GeneReg to construct time delay gene regulatory networks. BMC Res Notes 2010, 3(1):142.}
+\url{http://www.biomedcentral.com/1756-0500/3/142}
 }  
